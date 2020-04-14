@@ -3,7 +3,7 @@
     <h4>基础文件上传功能</h4>
     <div class="upload">
       选择文件:
-      <input type="file" ref="input" @change="handleChange"/>
+      <input type="file" ref="input" multiple @change="handleChange"/>
       <button @click="uploadFile">上 传</button>
     </div>
     <div>
@@ -29,14 +29,18 @@ export default {
       if (!files) {
         return
       }
-      // this.uploadFiles(files)
       this.postFiles = Array.prototype.slice.call(files)
-      // this.postFiles = this.postFiles.slice(0, 1)
       // this.$refs.input.value = null
     },
-    async uploadFile() {
+    uploadFile () {
+      if (!this.postFiles.length) return
+      this.postFiles.forEach(item => {
+        this.upload(item)
+      })
+    },
+    async upload (file) {
       const formData = new FormData()
-      formData.append('file', this.postFiles[0])
+      formData.append('file', file)
 
       const { data } = await this.$axios.post('/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -48,7 +52,6 @@ export default {
           }
         }
        })
-      console.log('data', data)
       this.imgSrc = data.data
       this.$Message.success('成功')
     }

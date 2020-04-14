@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Basic></Basic>
+    <Style></Style>
     <Drop></Drop>
     <Paste></Paste>
     <Chunk></Chunk>
@@ -14,13 +15,15 @@ import Drop from '~/components/Drop.vue'
 import Paste from '~/components/Paste.vue'
 import Chunk from '~/components/Chunk.vue'
 import BreakPoint from '~/components/BreakPoint.vue'
+import Style from '~/components/Style.vue'
 export default {
   components: {
     Basic,
     Drop,
     Paste,
     Chunk,
-    BreakPoint
+    BreakPoint,
+    Style
   },
   data () {
     return {}

@@ -46,6 +46,8 @@ export default {
     handleDragOver (e) {
       this.isDarg = true
       e.preventDefault()
+
+      console.log('object', e.dataTransfer.files)
     },
     handleDragLeave (e) {
       this.isDarg = false
