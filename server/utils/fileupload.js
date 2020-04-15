@@ -57,9 +57,9 @@ const chunkUpload = (ctx) => {
       readStream.pipe(writeStream, { end: false })
       readStream.on('end', () => {
         // 删除分片文件
-        // fs.unlink(fName, (err) => {
-        //   if (err) throw err
-        // })
+        fs.unlink(fName, (err) => {
+          if (err) throw err
+        })
 
         if (index + 1 < chunkCount) {
           index += 1
