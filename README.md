@@ -23,4 +23,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 
 ---
-![文档说明](desciption.md)
+[文档说明](./desciption.md)
