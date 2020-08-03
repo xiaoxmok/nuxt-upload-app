@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const fileupload = (ctx) => {
   let remotefilePath = null
+  console.log('ctx.request.files', ctx.request.files)
   if (ctx.request.files['file']) {
     const reader = fs.createReadStream(ctx.request.files['file']['path'])
     let filePath = `${path.resolve(__dirname, '../static')}/${ctx.request.files['file']['name']}`

@@ -41,6 +41,7 @@ export default {
     async upload (file) {
       const formData = new FormData()
       formData.append('file', file)
+      console.log('file', file)
 
       const { data } = await this.$axios.post('/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
